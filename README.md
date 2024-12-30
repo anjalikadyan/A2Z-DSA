@@ -141,3 +141,180 @@ int fun(int n):
         b = c
     return c
 
+
+1. Absolute Value of an Integer
+Task: Find the absolute value of a given integer I.
+
+Description:
+Given an integer, the program checks if the number is negative. If so, it converts it to positive. Otherwise, it remains unchanged.
+
+Code:
+a = int(input("A number: "))
+if(a < 0):
+    b = -a
+else:
+    b = a
+print(b)
+
+
+
+2. Celsius to Fahrenheit Conversion
+Task: Convert a temperature from Celsius to Fahrenheit.
+
+Description:
+The program takes a temperature in Celsius and converts it into Fahrenheit using the formula F = (C * 9/5) + 32.
+
+Code:
+a=int(input("number: "))
+F = (a * 9 / 5) + 32
+print("Fahrenheit", F)
+
+
+
+3. Factorial of a Number
+Task: Calculate the factorial of a positive integer N.
+
+Description:
+The program computes the factorial of a given number N, defined as the product of all positive integers less than or equal to N.
+
+Code:
+a=int(input("number: "))
+sum = 1
+for i in range(1, a + 1):
+    sum *= i
+print("Factorial of N: ", sum)
+
+
+
+4. Number of Digits in a Factorial
+Task: Find the number of digits in the factorial of a given number N.
+
+Description:
+The program calculates the factorial of N and counts the number of digits in the result.
+
+Code:
+a=int(input("number: "))
+sum = 1
+count = 0
+for i in range(1, a + 1):
+    sum *= i
+while sum != 0:
+    sum = int(sum / 10)
+    count += 1
+print(count)
+
+
+
+5. Prime Number Check
+Task: Check if a given number N is a prime number.
+
+Description:
+A prime number is a number that is divisible only by 1 and itself. The program checks if N has any divisors other than 1 and N itself.
+
+Code:
+a=int(input("number: "))
+count = 1
+for i in range(2, a * a + 1):
+    if (a % i == 0):
+        count += 1
+if (count == 2):
+    print("Prime")
+else:
+    print("Not Prime")
+
+
+
+6. Numbers with Exactly 3 Divisors
+Task: Find how many numbers less than or equal to n have exactly 3 divisors.
+
+Description:
+The program identifies numbers that have exactly 3 divisors, which typically are squares of prime numbers.
+
+Code:
+import math
+a = int(input("A number: "))
+count = 0
+
+def primeit(a: int) -> bool:
+    if a < 2:
+        return False
+    for i in range(2, int(math.sqrt(a)) + 1):
+        if (a % i == 0):
+            return False
+    return True
+
+for i in range(2, int(math.sqrt(a)) + 1):
+    if (primeit(i)):
+        if i * i <= a:
+            count += 1
+print(count)
+
+
+
+7. Nth Term of a Geometric Series
+Task: Find the Nth term of a geometric series given the first two terms A and B.
+
+Description:
+The program calculates the Nth term in a geometric series where the ratio r = B / A.
+
+Code:
+a = int(input("A number: "))
+b = int(input("B number: "))
+c = int(input("N number: "))
+if c == 1:
+    print(a)
+d = b / a
+sum = 1
+for i in range(1, c):
+    sum *= d
+f = int(a * sum)
+print(f)
+
+
+
+8. Sum of Two Numbers Modulo 10^9 +7
+Task: Find the sum of two numbers a and b, modulo 10^9 +7.
+
+Description:
+The program computes the sum of two integers a and b and then returns the result modulo 10^9 +7, which is a large prime number often used in programming contests.
+
+Code:
+import math
+a = int(input("A number: "))
+b = int(input("B number: "))
+c = a + b
+d = c % int(math.pow(10, 9) + 7)
+print(d)
+
+
+
+9. Multiplication of Two Numbers Modulo 10^9 +7
+Task: Find the product of two numbers a and b, modulo 10^9 +7.
+
+Description:
+This program computes the product of two integers a and b, then takes the result modulo 10^9 +7.
+
+Code:
+import math
+a = input("A number: ")
+a = int(a)
+b = int(input("B number: "))
+c = a * b
+d = int(c % int(math.pow(10, 9) + 7))
+print(d)
+
+
+
+10. Modular Multiplicative Inverse
+Task: Find the smallest modular multiplicative inverse of a under modulo m. If it doesn't exist, return -1.
+
+Description:
+This program calculates the modular multiplicative inverse of a modulo m if it exists. The inverse of a modulo m is a number x such that (a * x) % m == 1.
+
+Code:
+a = int(input("number: "))
+m = int(input("module: "))
+for i in range(1, m):
+    if ((i * a) % m == 1):
+        print(i)
+
