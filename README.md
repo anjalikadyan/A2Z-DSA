@@ -213,4 +213,98 @@ print("Tower of Hanoi steps:")
 tower_of_hanoi(n, 'A', 'C', 'B')
 ```
 
+Here’s a summary of the key points about **Hashing in Data Structures and Algorithms (DSA)**:
+
+---
+
+### Hashing in DSA**
+
+**Hashing** is a technique used to store and retrieve data efficiently by mapping keys to fixed-size indexes using a **hash function**. It significantly improves the time complexity for operations like insertion, deletion, and searching compared to other data structures.
+
+---
+
+### **Key Concepts**
+
+1. **Hash Function**:
+   - A function that converts a key into an index for the hash table. Example: `key % table_size`.
+
+2. **Hash Table**:
+   - A structure that stores key-value pairs. The hash function determines where each pair is stored.
+
+3. **Collision**:
+   - Occurs when two keys hash to the same index. Collision resolution is necessary to maintain data integrity.
+
+---
+
+### **Operations in Hashing**
+
+1. **Insert**: Use the hash function to find an index and store the key-value pair.
+2. **Search**: Use the hash function to locate the index and retrieve the value.
+3. **Delete**: Use the hash function to locate the index and remove the key-value pair.
+
+---
+
+### **Collision Resolution Techniques**
+
+1. **Chaining**: Each table index holds a linked list. Multiple keys that hash to the same index are stored in the list.
+2. **Open Addressing**: All elements are stored in the table. If a collision occurs, methods like **linear probing**, **quadratic probing**, and **double hashing** are used to find the next available index.
+
+---
+
+### **Advantages of Hashing**
+
+1. **Fast Access**: Average time complexity for insertion, deletion, and search is \(O(1)\).
+2. **Efficient Memory Usage**: Hash tables store data compactly, ensuring efficient memory usage.
+
+---
+
+### **Example: Hash Table with Chaining**
+
+```python
+class HashTable:
+    def __init__(self, size):
+        self.size = size
+        self.table = [[] for _ in range(size)]
+
+    def hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        for k, v in self.table[index]:
+            if k == key:
+                self.table[index].remove((k, v))  # Remove old pair
+                break
+        self.table[index].append((key, value))
+
+    def search(self, key):
+        index = self.hash_function(key)
+        for k, v in self.table[index]:
+            if k == key:
+                return v
+        return None
+
+    def delete(self, key):
+        index = self.hash_function(key)
+        for i, (k, v) in enumerate(self.table[index]):
+            if k == key:
+                del self.table[index][i]
+                return True
+        return False
+
+# Example Usage
+hash_table = HashTable(10)
+hash_table.insert(1, "one")
+hash_table.insert(11, "eleven")
+print(hash_table.search(11))  # Output: eleven
+hash_table.delete(11)
+print(hash_table.search(11))  # Output: None
+```
+
+---
+
+### **Conclusion**
+
+Hashing is essential for efficient data retrieval and storage, especially in cases like databases, caches, and implementing hash maps. It helps achieve fast access to data with \(O(1)\) time complexity, but requires careful collision handling to maintain performance.
+
 ---
