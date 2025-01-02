@@ -308,3 +308,22 @@ print(hash_table.search(11))  # Output: None
 Hashing is essential for efficient data retrieval and storage, especially in cases like databases, caches, and implementing hash maps. It helps achieve fast access to data with \(O(1)\) time complexity, but requires careful collision handling to maintain performance.
 
 ---
+
+# Sorting Algorithms for Arrays
+
+### Selection Sort:
+- Works by repeatedly finding the minimum element and swapping it.
+- Time Complexity: **O(n^2)** (all cases).
+- Space Complexity: **O(1)**.
+
+### Bubble Sort:
+- Repeatedly compares and swaps adjacent elements.
+- Time Complexity: **O(n^2)** (worst and average), **O(n)** (best).
+- Space Complexity: **O(1)**.
+
+### Insertion Sort:
+- Iteratively inserts elements into their correct position.
+- Time Complexity: **O(n)** (best), **O(n^2)** (average and worst).
+- Space Complexity: **O(1)**.
+
+
