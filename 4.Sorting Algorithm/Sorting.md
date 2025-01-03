@@ -72,13 +72,15 @@ Let’s consider an array:
 ### Space Complexity:
 - Auxiliary Space: **O(1)** (Insertion Sort requires only a constant amount of additional memory.)
 
-# 4. Merge Sort Algorithm
+---
+
+## 4. Merge Sort
 
 Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and stable. In this algorithm, the array is divided into two halves repeatedly until it can no longer be divided. Then, each subarray is sorted individually using the merge sort algorithm. Finally, all sorted subarrays are merged back together in sorted order.
 
 ---
 
-## **Time Complexity**
+### Time Complexity
 
 1. **Best Case**:
    - **O(n log n)**
@@ -94,25 +96,25 @@ Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and st
 
 ---
 
-## **Auxiliary Space**
+### Auxiliary Space
 - **O(n)**:
   Additional space is required for the temporary array used during merging.
 
 ---
 
-## **How Merge Sort Works**
+### How Merge Sort Works
 1. **Divide**: Split the array into two halves recursively.
 2. **Conquer**: Sort each half using merge sort.
 3. **Combine**: Merge the two sorted halves back into a single sorted array.
 
 ---
 
-## **Example**
+### Example
 
-### Given Array:
+#### Given Array:
 `[38, 27, 43, 3, 9, 82, 10]`
 
-### Steps:
+#### Steps:
 
 1. **Divide**:
    - Split into two halves:
@@ -133,12 +135,12 @@ Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and st
    - Merge `[9, 82]` and `[10]` → `[9, 10, 82]`
    - Merge `[3, 27, 38, 43]` and `[9, 10, 82]` → `[3, 9, 10, 27, 38, 43, 82]`
 
-### Final Sorted Array:
+#### Final Sorted Array:
 `[3, 9, 10, 27, 38, 43, 82]`
 
 ---
 
-## **Python Implementation**
+### Python Implementation
 ```python
 # Merge Function
 def merge(arr, l, m, r):
