@@ -72,3 +72,116 @@ Let’s consider an array:
 ### Space Complexity:
 - Auxiliary Space: **O(1)** (Insertion Sort requires only a constant amount of additional memory.)
 
+# 4. Merge Sort Algorithm
+
+Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and stable. In this algorithm, the array is divided into two halves repeatedly until it can no longer be divided. Then, each subarray is sorted individually using the merge sort algorithm. Finally, all sorted subarrays are merged back together in sorted order.
+
+---
+
+## **Time Complexity**
+
+1. **Best Case**:
+   - **O(n log n)**
+   - When the array is already sorted or nearly sorted.
+
+2. **Average Case**:
+   - **O(n log n)**
+   - When the array is randomly ordered.
+
+3. **Worst Case**:
+   - **O(n log n)**
+   - When the array is sorted in reverse order.
+
+---
+
+## **Auxiliary Space**
+- **O(n)**:
+  Additional space is required for the temporary array used during merging.
+
+---
+
+## **How Merge Sort Works**
+1. **Divide**: Split the array into two halves recursively.
+2. **Conquer**: Sort each half using merge sort.
+3. **Combine**: Merge the two sorted halves back into a single sorted array.
+
+---
+
+## **Example**
+
+### Given Array:
+`[38, 27, 43, 3, 9, 82, 10]`
+
+### Steps:
+
+1. **Divide**:
+   - Split into two halves:
+     - Left: `[38, 27, 43, 3]`
+     - Right: `[9, 82, 10]`
+
+2. **Recursive Division**:
+   - `[38, 27, 43, 3]` → `[38, 27]` and `[43, 3]`
+   - `[9, 82, 10]` → `[9, 82]` and `[10]`
+   - Continue dividing until single-element arrays:
+     - `[38], [27], [43], [3], [9], [82], [10]`
+
+3. **Merge Step**:
+   - Merge `[38]` and `[27]` → `[27, 38]`
+   - Merge `[43]` and `[3]` → `[3, 43]`
+   - Merge `[9]` and `[82]` → `[9, 82]`
+   - Merge `[27, 38]` and `[3, 43]` → `[3, 27, 38, 43]`
+   - Merge `[9, 82]` and `[10]` → `[9, 10, 82]`
+   - Merge `[3, 27, 38, 43]` and `[9, 10, 82]` → `[3, 9, 10, 27, 38, 43, 82]`
+
+### Final Sorted Array:
+`[3, 9, 10, 27, 38, 43, 82]`
+
+---
+
+## **Python Implementation**
+```python
+# Merge Function
+def merge(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+    L = [arr[l + i] for i in range(n1)]
+    R = [arr[m + 1 + i] for i in range(n2)]
+    i = j = 0
+    k = l
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+# Merge Sort Function
+def merge_sort(arr, l, r):
+    if l < r:
+        m = (l + r) // 2
+        merge_sort(arr, l, m)
+        merge_sort(arr, m + 1, r)
+        merge(arr, l, m, r)
+
+# Example Usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+merge_sort(arr, 0, len(arr) - 1)
+print("Sorted array:", arr)
+```
+
+### Output:
+```
+Original array: [38, 27, 43, 3, 9, 82, 10]
+Sorted array: [3, 9, 10, 27, 38, 43, 82]
+```
+

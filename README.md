@@ -326,4 +326,28 @@ Hashing is essential for efficient data retrieval and storage, especially in cas
 - Time Complexity: **O(n)** (best), **O(n^2)** (average and worst).
 - Space Complexity: **O(1)**.
 
+### Merge Sort Algorithm
+- **Merge Sort** is a **divide-and-conquer** sorting algorithm.
+- It is both **efficient** and **stable**.
+- The algorithm works by dividing the array into two halves until no further division is possible. Each subarray is then sorted recursively and merged back together in sorted order.
+
+### Time Complexity
+1. **Best Case**:
+   - **O(n log n)**
+   - Occurs when the array is already sorted or nearly sorted.
+
+2. **Average Case**:
+   - **O(n log n)**
+   - Occurs when the array is randomly ordered.
+
+3. **Worst Case**:
+   - **O(n log n)**
+   - Occurs when the array is sorted in reverse order.
+
+### Auxiliary Space
+- **O(n)**:
+  - Additional space is required for the temporary arrays used during the merge process.
+
+
+
 
