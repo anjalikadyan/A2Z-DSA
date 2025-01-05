@@ -70,52 +70,39 @@ Let’s consider an array:
 - **Worst case:** **O(n^2)** (if the list is in reverse order)
 
 ### Space Complexity:
-- Auxiliary Space: **O(1)** (Insertion Sort requires only a constant amount of additional memory.)
+- Auxiliary Space: **O(1)**
 
 ---
 
 ## 4. Merge Sort
-
 Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and stable. In this algorithm, the array is divided into two halves repeatedly until it can no longer be divided. Then, each subarray is sorted individually using the merge sort algorithm. Finally, all sorted subarrays are merged back together in sorted order.
 
----
-
-### Time Complexity
-
-1. **Best Case**:
+### Time Complexity:
+1. **Best Case:**
    - **O(n log n)**
    - When the array is already sorted or nearly sorted.
 
-2. **Average Case**:
+2. **Average Case:**
    - **O(n log n)**
    - When the array is randomly ordered.
 
-3. **Worst Case**:
+3. **Worst Case:**
    - **O(n log n)**
    - When the array is sorted in reverse order.
 
----
+### Auxiliary Space:
+- **O(n)**: Additional space is required for the temporary array used during merging.
 
-### Auxiliary Space
-- **O(n)**:
-  Additional space is required for the temporary array used during merging.
-
----
-
-### How Merge Sort Works
+### How Merge Sort Works:
 1. **Divide**: Split the array into two halves recursively.
 2. **Conquer**: Sort each half using merge sort.
 3. **Combine**: Merge the two sorted halves back into a single sorted array.
 
----
-
-### Example
-
+### Example:
 #### Given Array:
 `[38, 27, 43, 3, 9, 82, 10]`
 
 #### Steps:
-
 1. **Divide**:
    - Split into two halves:
      - Left: `[38, 27, 43, 3]`
@@ -138,9 +125,7 @@ Merge Sort is a **divide-and-conquer** sorting algorithm. It is efficient and st
 #### Final Sorted Array:
 `[3, 9, 10, 27, 38, 43, 82]`
 
----
-
-### Python Implementation
+### Python Implementation:
 ```python
 # Merge Function
 def merge(arr, l, m, r):
@@ -187,3 +172,83 @@ Original array: [38, 27, 43, 3, 9, 82, 10]
 Sorted array: [3, 9, 10, 27, 38, 43, 82]
 ```
 
+---
+
+## 5. Quick Sort
+Quick Sort is a **divide-and-conquer** sorting algorithm. It works by choosing a random, first, or last element as the **pivot**. All elements smaller than the pivot are moved to its left, and all elements larger are moved to its right. This process is repeated recursively until only one element remains in each partition.
+
+### How It Works:
+1. **Choose Pivot**: Select a pivot element (random, first, or last element).
+2. **Partition**: Rearrange elements such that:
+   - Left of pivot: Elements smaller than pivot.
+   - Right of pivot: Elements larger than pivot.
+3. **Recursion**: Apply the same process to the left and right subarrays.
+4. **Base Case**: Stop when a subarray has only one element.
+
+### Time Complexity:
+1. **Best Case**: Ω(n log n)
+   - Occurs when the pivot element divides the array into two equal halves.
+2. **Average Case**: Θ(n log n)
+   - On average, the pivot divides the array into two parts (not necessarily equal).
+3. **Worst Case**: O(n²)
+   - Occurs when the smallest or largest element is always chosen as the pivot (e.g., already sorted arrays).
+
+### Auxiliary Space:
+- **O(n)**: Due to the recursive call stack.
+
+### Example:
+#### Input Array:
+`[8, 3, 7, 6, 2]`
+
+#### Steps:
+1. **First Partition**:
+   - Choose Pivot: `2`
+   - Partition:
+     - Left: `[ ]` (no elements smaller than `2`).
+     - Pivot: `2`.
+     - Right: `[8, 3, 7, 6]` (all elements larger than `2`).
+
+Result: `[2, 3, 7, 6, 8]`
+
+2. **Recursively Sort Right Subarray (`[3, 7, 6, 8]`)**:
+   - Choose Pivot: `8`
+   - Partition:
+     - Left: `[3, 7, 6]`.
+     - Pivot: `8`.
+     - Right: `[ ]` (no elements larger than `8`).
+
+Result: `[3, 7, 6, 8]`
+
+3. **Recursively Sort Left Subarray (`[3, 7, 6]`)**:
+   - Choose Pivot: `6`
+   - Partition:
+     - Left: `[3]`.
+     - Pivot: `6`.
+     - Right: `[7]`.
+
+Result: `[3, 6, 7]`
+
+#### Final Sorted Array:
+`[2, 3, 6, 7, 8]`
+
+### Python Implementation:
+```python
+# Quick Sort Function
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[-1]  # Choose the last element as the pivot
+    left = [x for x in arr[:-1] if x <= pivot]
+    right = [x for x in arr[:-1] if x > pivot]
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Example Usage
+arr = [8, 3, 7, 6, 2]
+sorted_arr = quick_sort(arr)
+print("Sorted array:", sorted_arr)
+```
+
+### Output:
+```
+Original array: [8, 3, 7, 6, 2]
+Sorted array: [2, 3, 6, 7, 8]

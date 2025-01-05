@@ -349,5 +349,51 @@ Hashing is essential for efficient data retrieval and storage, especially in cas
   - Additional space is required for the temporary arrays used during the merge process.
 
 
+##Quick Sort
+
+Quick Sort is a **divide-and-conquer** algorithm that efficiently sorts arrays by recursively partitioning them based on a selected pivot element. 
+
+### Key Points:
+1. **Pivot Selection**: A pivot can be chosen randomly, or from the first or last element.
+2. **Partitioning**:
+   - Elements smaller than the pivot go to the left.
+   - Elements larger than the pivot go to the right.
+3. **Recursion**: The same process is applied to the left and right subarrays until all subarrays contain one element.
+
+### Time Complexity:
+- **Best Case**: Ω(n log n) - When the pivot splits the array evenly.
+- **Average Case**: Θ(n log n) - For most cases.
+- **Worst Case**: O(n²) - When the array is already sorted or reverse-sorted, and the smallest or largest element is chosen as the pivot.
+
+### Auxiliary Space:
+- **O(n)** - Space used by the recursive call stack.
+
+### Example:
+#### Input: `[8, 3, 7, 6, 2]`
+#### Output: `[2, 3, 6, 7, 8]`
+
+### Python Code:
+```python
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[-1]
+    left = [x for x in arr[:-1] if x <= pivot]
+    right = [x for x in arr[:-1] if x > pivot]
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Example Usage
+arr = [8, 3, 7, 6, 2]
+print(quick_sort(arr))  # Output: [2, 3, 6, 7, 8]
+```
+
+### Advantages:
+- Highly efficient for large datasets.
+- Average and best-case time complexity are **O(n log n)**.
+
+### Disadvantages:
+- Worst-case time complexity is **O(n²)**.
+- Recursive nature can cause stack overflow for very large arrays if not optimized.
+
 
 
