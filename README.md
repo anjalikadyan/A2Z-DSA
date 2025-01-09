@@ -395,5 +395,41 @@ print(quick_sort(arr))  # Output: [2, 3, 6, 7, 8]
 - Worst-case time complexity is **O(n²)**.
 - Recursive nature can cause stack overflow for very large arrays if not optimized.
 
+# **Backtracking**
+
+**Backtracking** is an algorithmic approach that uses recursion and a "try-and-error" strategy to explore all possible solutions to a problem. If a solution does not meet the defined conditions, the algorithm backtracks (undoes the last step) and tries a different path. It is particularly useful for solving problems with multiple constraints or configurations, such as puzzles, pathfinding, and combinatorial problems.
+
+---
+
+## **Key Steps in Backtracking**  
+1. **Define the Problem**: Specify the conditions for a valid solution.  
+2. **Use Recursion**: Explore potential solutions step-by-step.  
+3. **Undo and Retry**: Backtrack if the current solution does not satisfy the conditions and try alternative paths.
+
+---
+
+### **Examples**  
+1. **N-Queens Problem**:  
+   - **Goal**: Place N queens on an N×N chessboard such that no two queens threaten each other.  
+   - **Approach**: Place queens row by row, validate their positions, and backtrack if conflicts arise.  
+
+2. **Maze Problem (Pathfinding)**:  
+   - **Goal**: Find a path from the start to the destination in a grid-based maze.  
+   - **Approach**: Recursively move to neighboring cells, backtrack if a dead-end is reached, and explore alternate paths.  
+
+3. **Generating All Subsets of a Set**:  
+   - **Goal**: Create all possible subsets of a given set.  
+   - **Approach**: Include or exclude elements recursively, backtracking to explore all combinations.
+
+---
+
+### **Applications of Backtracking**  
+- Solving combinatorial problems (e.g., subsets, permutations).  
+- Pathfinding in mazes or graphs.  
+- Puzzle-solving (e.g., Sudoku, N-Queens).  
+- Optimizing resource allocation problems.
+
+Backtracking is a powerful problem-solving technique but can be computationally expensive for large input sizes.
+
 
 
