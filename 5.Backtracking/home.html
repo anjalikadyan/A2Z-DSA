@@ -5,76 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Solver</title>
     <style>
-        body{
-            background-color: rgb(83, 14, 14);
-            color: black;
-            
+        .sudoku-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 40px);
+            gap: 1px;
+            background-color: #000;
+            padding: 2px;
+            width: fit-content;
+            margin: 20px auto;
         }
-        .container{
-            padding:0;
-            margin: 0;
-            justify-content: center;
-            align-items: center;
-        }
-        .tclass{
-            border: 1px solid black;
-            border-collapse: collapse;
+        .cell {
+            width: 40px;
+            height: 40px;
             background-color: white;
-            margin: 0;
-            padding: 0;
-        }
-        .tclass td{
-            border: 1px solid black;
-            width: 50px;
-            height: 50px;
             text-align: center;
-            font-size: 40px;
-            font-weight: bold;
+            line-height: 40px;
         }
-        .tclass colgroup {
-            border-right: 3px solid black;
+        .cell input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 18px;
         }
-        .tclass colgroup:last-child {
-            border-right: none;
+        .controls {
+            text-align: center;
+            margin: 20px;
         }
-        .tclass tbody {
-            border-bottom: 3px solid black;
-        }
-        .tclass tbody:last-child {
-            border-bottom: none;
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Project Sudoku Solver</h1>
-        <table class="tclass">
-            <colgroup><col><col><col>
-            <colgroup><col><col><col>
-            <colgroup><col><col><col>
-            <tbody>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            </tbody>
-            <tbody>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            </tbody>
-            <tbody>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            <tr> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> <td contenteditable="true"></td> </tr>
-            </tbody>
-        </table>
-        <div class="button">
-            <button>Solve</button>
-        </div>
-        <div class="button1">
-            <button>Clear</button>
-        </div>
+    <div class="sudoku-grid" id="grid">
+        <!-- Grid will be generated by JavaScript -->
+    </div>
+    <div class="controls">
+        <button onclick="solvePuzzle()">Solve</button>
+        <button onclick="clearGrid()">Clear</button>
     </div>
 
+    <script>
+        // Generate the grid
+        const grid = document.getElementById('grid');
+        for (let i = 0; i < 81; i++) {
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = '1';
+            input.max = '9';
+            input.className = 'cell';
+            grid.appendChild(input);
+        }
+
+        function getPuzzle() {
+            const cells = document.querySelectorAll('.cell');
+            return Array.from(cells).map(cell => cell.value || '0');
+        }
+
+        function displaySolution(solution) {
+            const cells = document.querySelectorAll('.cell');
+            solution.flat().forEach((value, index) => {
+                cells[index].value = value;
+            });
+        }
+
+        function clearGrid() {
+            const cells = document.querySelectorAll('.cell');
+            cells.forEach(cell => cell.value = '');
+        }
+
+        function solvePuzzle() {
+            const puzzle = getPuzzle();
+            
+            fetch('/solve', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ puzzle: puzzle })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displaySolution(data.solution);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while solving the puzzle');
+            });
+        }
+    </script>
 </body>
 </html>
