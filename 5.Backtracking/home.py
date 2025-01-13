@@ -4,14 +4,14 @@ app = Flask(__name__)
 def check_row(arr, row, num):
     for col in range(9):
         if arr[row][col] == num:
-            return False
-    return True
+            return False    # Number already exists in row
+    return True    # Number is valid for this row
 #checking column for duplicate number
 def check_col(arr, col, num):
     for row in range(9):
         if arr[row][col] == num:
-            return False
-    return True
+            return False    # Number already exists in column
+    return True    # Number is valid for this column
 #checking 3x3 matrix for duplicate number
 def matrix(arr, row, col, num):
     startrow = (row // 3) * 3
@@ -19,8 +19,8 @@ def matrix(arr, row, col, num):
     for i in range(3):
         for j in range(3):
             if arr[startrow + i][startcol + j] == num:
-                return False
-    return True
+                return False    # Number already exists in 3x3 box
+    return True    # Number is valid for this 3x3 box
 #checking if the number is valid
 def valid(arr, row, col, num):
     return (
@@ -53,15 +53,7 @@ def print_grid(arr):
     for i in range(9):
         print(arr[i])
 n=9
-# arr=[[0 for i in range(9)] for j in range(9)]
-# #taking input from user for array(1-9)
-# for i in range(n):
-#     for j in range(n):
-#         arr[i][j]=int(input("Enter the number: "))
-#         if arr[i][j] not in range(1,10):
-#             print("invalid number")
-#             print("enter the number again")
-#             arr[i][j]=int(input("Enter the number: "))
+
 
 arr1= [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
