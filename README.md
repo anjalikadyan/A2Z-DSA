@@ -431,5 +431,87 @@ print(quick_sort(arr))  # Output: [2, 3, 6, 7, 8]
 
 Backtracking is a powerful problem-solving technique but can be computationally expensive for large input sizes.
 
+Here is the content for your `README.md`:
+
+```markdown
+## Binary Search Algorithm
+
+### Description
+
+Binary Search is a highly efficient algorithm used to find an element in a **sorted array**. It works by repeatedly dividing the search interval in half, narrowing down the potential location of the target element.
+
+#### Steps:
+1. Start with two pointers (`low` and `high`) representing the boundaries of the array.
+2. Find the middle element of the array.
+3. Compare the middle element with the target:
+   - If the middle element is the target, return the index.
+   - If the middle element is larger than the target, search the left half.
+   - If the middle element is smaller than the target, search the right half.
+4. Repeat the process until the target is found or the pointers cross.
+
+### Time and Space Complexity
+
+- **Time Complexity**: `O(log n)` - Each step halves the array size, making it much faster than linear search for large datasets.
+- **Space Complexity**: `O(1)` - No additional space required for iterative implementation.
+
+### Binary Search Algorithm Example
+
+#### Example 1: Searching for an element in an array.
+
+Given a sorted array:
+
+```python
+arr = [1, 3, 5, 7, 9, 11, 13, 15]
+```
+
+#### Binary Search Code:
+
+```python
+def binary_search(array, target):
+    low, high = 0, len(array) - 1
+
+    while low <= high:
+        mid = (low + high) // 2  # Find middle element
+
+        if array[mid] == target:
+            return mid  # Target found
+        elif array[mid] < target:
+            low = mid + 1  # Search right half
+        else:
+            high = mid - 1  # Search left half
+
+    return -1  # Target not found
+```
+
+#### Example 2: Searching for the target value `7`:
+
+```python
+arr = [1, 3, 5, 7, 9, 11, 13, 15]
+target = 7
+
+result = binary_search(arr, target)
+if result != -1:
+    print(f"Element found at index {result}")
+else:
+    print("Element not found")
+```
+
+#### Output:
+
+```
+Element found at index 3
+```
+
+### Usage
+
+1. The array must be sorted.
+2. Call the `binary_search` function, passing the array and the target element as arguments.
+
+---
+
+### Conclusion
+
+Binary search is a powerful and efficient algorithm when applied to sorted arrays. It offers significant performance improvements over linear search, especially as the size of the array grows.
+```
 
 
