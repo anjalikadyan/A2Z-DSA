@@ -514,4 +514,63 @@ Element found at index 3
 Binary search is a powerful and efficient algorithm when applied to sorted arrays. It offers significant performance improvements over linear search, especially as the size of the array grows.
 ```
 
+# Strings in Python
+
+A **string** is a data type in programming used to represent a sequence of characters. Strings can include letters, numbers, symbols, and spaces. They are typically enclosed in **quotation marks**: either single (`'`) or double (`"`).
+
+## Examples of Strings
+- `"Hello, World!"`  
+- `'Python is fun!'`  
+- `"12345"` (a string of numbers, not actual integers)  
+- `'!@#$%^&*()'` (a string of symbols)
+
+## String in Python
+In Python, strings are created by enclosing text in quotes:
+
+```python
+# Examples of strings
+string1 = "Hello, World!"
+string2 = 'Python is fun!'
+string3 = "12345"  # This is a string, not an integer
+```
+
+## Operations with Strings
+You can perform various operations with strings, such as:
+
+### 1. Concatenation (joining strings):
+```python
+greeting = "Hello"
+name = "Alice"
+result = greeting + ", " + name + "!"
+print(result)  # Output: Hello, Alice!
+```
+
+### 2. Repetition:
+```python
+word = "Hi"
+repeated = word * 3
+print(repeated)  # Output: HiHiHi
+```
+
+### 3. Accessing Characters:
+```python
+my_string = "Python"
+print(my_string[0])  # Output: P (first character)
+print(my_string[-1])  # Output: n (last character)
+```
+
+### 4. String Length:
+```python
+my_string = "Hello"
+print(len(my_string))  # Output: 5
+```
+
+### 5. String Methods:
+```python
+text = "hello"
+print(text.upper())  # Output: HELLO
+print(text.capitalize())  # Output: Hello
+print(text.replace('l', 'r'))  # Output: herro
+```
+
 
