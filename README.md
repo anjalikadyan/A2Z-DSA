@@ -513,8 +513,8 @@ Element found at index 3
 
 Binary search is a powerful and efficient algorithm when applied to sorted arrays. It offers significant performance improvements over linear search, especially as the size of the array grows.
 ```
-
-# Strings in Python
+```
+## Strings in Python
 
 A **string** is a data type in programming used to represent a sequence of characters. Strings can include letters, numbers, symbols, and spaces. They are typically enclosed in **quotation marks**: either single (`'`) or double (`"`).
 
