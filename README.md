@@ -572,6 +572,36 @@ print(text.upper())  # Output: HELLO
 print(text.capitalize())  # Output: Hello
 print(text.replace('l', 'r'))  # Output: herro
 ```
+# Linked List
+
+A **linked list** is a linear data structure in which elements (called **nodes**) are linked together using pointers. Unlike arrays, linked lists do not require contiguous memory locations, making them more flexible in dynamic memory allocation.
+
+## Types of Linked Lists
+1. **Singly Linked List** – Each node has data and a pointer to the next node.
+2. **Doubly Linked List** – Each node has data, a pointer to the next node, and a pointer to the previous node.
+3. **Circular Linked List** – The last node points back to the first node, forming a loop.
+
+## Basic Structure of a Node (Singly Linked List in C++)
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+```
+
+## Operations on Linked List
+1. **Insertion** – Add a new node at the beginning, end, or a specific position.
+2. **Deletion** – Remove a node from the list.
+3. **Traversal** – Go through the list to access elements.
+4. **Searching** – Find a node with a given value.
+
+## Usage
+Linked lists are useful in scenarios where:
+- Dynamic memory allocation is required.
+- Frequent insertions and deletions occur.
+- Memory utilization needs to be optimized.
+
+
 
 
 
