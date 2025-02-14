@@ -38,10 +38,11 @@ class DoublyLinkedList:
         print("None")
 
 dll = DoublyLinkedList()
-dll.append(1)
-dll.append(2)
-dll.append(3)
-dll.append(4)
+num=int(input("number :"))
+for i in range(num):
+    n=int(input("linked list: "))
+    dll.append(n)
+
 
 dll.delete_node(dll.head.next)  
 dll.display()
