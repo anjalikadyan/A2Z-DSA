@@ -128,17 +128,11 @@ Deletion can also be performed at different positions:
 ```
 
 ## Conclusion
-A singly linked list allows dynamic memory allocation and efficient insertions and deletions at different positions. However, it lacks backward traversal and requires sequential access for searches.
-
-
-
-### 2. Doubly Linked List
+A singly linked list allows dynamic memory allocation and efficient insertions and deletions at different positions. However, it lacks backward traversal and requires sequential access for searches.### 2. Doubly Linked List
 
 A doubly linked list consists of nodes where:
-
 - Each node contains **two pointers** (one pointing to the next node and another pointing to the previous node).
 - This allows traversal in both forward and backward directions.
-
 **Example:**
 ```python
 class Node:
