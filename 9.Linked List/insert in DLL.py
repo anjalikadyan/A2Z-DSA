@@ -42,8 +42,11 @@ class DoublyLinkedList:
         print("None")
 
 dll = DoublyLinkedList()
-dll.insert_at_position(10, 0)  
-dll.insert_at_position(20, 1)
-dll.insert_at_position(30, 2) 
+n = int(input())
+# a = [0]*n
+
+for i in range(n-1):
+    a=int(input("number: "))
+    dll.insert_at_position(a, i) 
 dll.insert_at_position(15, 1) 
 dll.print_list()

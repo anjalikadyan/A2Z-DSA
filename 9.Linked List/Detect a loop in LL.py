@@ -33,8 +33,13 @@ def createCycleList(values, pos):
         temp.next = cycle_node 
 
     return head
+n = int(input())
+a = [0]*n
 
-head = createCycleList([1, 2, 3, 4, 5], 1)  
+for i in range(n-1):
+    a[i]=int(input("number: "))
+
+head = createCycleList(a, 1)  
 
 sol = Solution()
 print("Cycle detected:" if sol.hasCycle(head) else "No cycle detected")

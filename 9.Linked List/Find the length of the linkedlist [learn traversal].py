@@ -1,5 +1,3 @@
-n = int(input())
-a = int(input("number: "))
 def getCount(head):
         count=0
         while (head):
@@ -18,6 +16,8 @@ def insert(head,x):
     while current.next:
         current=current.next
     current.next=temp
+n = int(input())
+a = int(input("number: "))
 
 for i in range(n-1):
     s=int(input("number: "))

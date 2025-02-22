@@ -39,8 +39,15 @@ def create_intersected_lists(intersect_val, listA_vals, listB_vals, skipA, skipB
             break
     
     return dummyA.next, dummyB.next
+n = int(input())
+a = [0]*n
 
-listA_vals = [4,1,8,4,5]
-listB_vals = [5,6,1,8,4,5]
-headA, headB = create_intersected_lists(8, listA_vals, listB_vals, 2, 3)
+for i in range(n-1):
+    a[i]=int(input("number: "))
+n1 = int(input())
+a1 = [0]*n
+
+for i in range(n1-1):
+    a1[i]=int(input("number: "))
+headA, headB = create_intersected_lists(8, a,a1, 2, 3)
 print(getIntersectionNode(headA, headB).val if getIntersectionNode(headA, headB) else None)
