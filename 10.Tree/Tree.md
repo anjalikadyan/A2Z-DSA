@@ -81,3 +81,17 @@ Where **(I)** represents an internal node and **(E)** represents an external nod
 - Binary search trees in computer science.
 
 An extended binary tree is an essential concept in **tree data structures**, providing a foundational basis for various computational applications.
+
+## Tree Structure Example
+
+- Root  
+  - Branch 1  
+    - Leaf 1.1  
+    - Leaf 1.2  
+  - Branch 2  
+    - Sub-branch 2.1  
+      - Leaf 2.1.1  
+      - Leaf 2.1.2  
+    - Sub-branch 2.2  
+      - Leaf 2.2.1  
+
