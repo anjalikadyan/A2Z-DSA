@@ -95,3 +95,48 @@ An extended binary tree is an essential concept in **tree data structures**, pro
     - Sub-branch 2.2  
       - Leaf 2.2.1  
 
+# AVL Tree
+
+## Introduction
+An AVL tree is a self-balancing binary search tree (BST) where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This balance condition ensures that the tree remains balanced, providing efficient operations.
+
+## Properties
+1. **Self-balancing**: The height difference between left and right subtrees (balance factor) is at most 1.
+2. **BST Property**: Left subtree values are smaller than the node, and right subtree values are greater.
+3. **Rotations**: To maintain balance, the AVL tree uses rotations:
+   - Right Rotation (LL Rotation)
+   - Left Rotation (RR Rotation)
+   - Left-Right Rotation (LR Rotation)
+   - Right-Left Rotation (RL Rotation)
+
+## Example
+### Insertions and Rotations
+Consider inserting the following values into an empty AVL tree:
+**10, 20, 30, 40, 50, 25**
+
+1. Insert **10** → No rotation needed.
+2. Insert **20** → No rotation needed.
+3. Insert **30** → The tree becomes unbalanced (Right-heavy). Perform **RR Rotation** at node 10.
+4. Insert **40** → No rotation needed.
+5. Insert **50** → The tree becomes unbalanced (Right-heavy). Perform **RR Rotation** at node 20.
+6. Insert **25** → The tree becomes unbalanced (Right-Left case at node 30). Perform **RL Rotation** at node 30.
+
+### Final AVL Tree Structure
+```
+        30
+       /  \
+     20    40
+    /  \     \
+   10   25    50
+```
+
+## Applications
+- Database Indexing
+- Memory Management
+- File Systems
+
+## Conclusion
+AVL trees provide efficient operations with **O(log n)** complexity for insertions, deletions, and lookups. By maintaining balance using rotations, they ensure optimal performance for dynamic datasets.
+
+
+
