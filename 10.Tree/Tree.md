@@ -138,5 +138,107 @@ Consider inserting the following values into an empty AVL tree:
 ## Conclusion
 AVL trees provide efficient operations with **O(log n)** complexity for insertions, deletions, and lookups. By maintaining balance using rotations, they ensure optimal performance for dynamic datasets.
 
+# AVL Tree Example
+
+## What is an AVL Tree?
+An **AVL Tree** is a self-balancing binary search tree where the difference between the heights of left and right subtrees (balance factor) is at most **1** for all nodes.
+
+## Rotations in AVL Tree
+To maintain balance, AVL trees perform the following rotations:
+
+- **Right Rotation (Single Rotation - LL Case)**
+- **Left Rotation (Single Rotation - RR Case)**
+- **Left-Right Rotation (Double Rotation - LR Case)**
+- **Right-Left Rotation (Double Rotation - RL Case)**
+
+## Example of AVL Tree Insertion
+Let's insert the numbers **10, 20, 30, 40, 50, 25** into an empty AVL tree and balance it.
+
+### Step 1: Insert 10
+```
+   10
+```
+(No rotation needed)
+
+### Step 2: Insert 20
+```
+   10
+     \
+      20
+```
+(No rotation needed)
+
+### Step 3: Insert 30 (Unbalanced, Right-Right Case)
+```
+   10
+     \
+      20
+        \
+         30
+```
+**Fix:** Left Rotation at 10
+```
+    20
+   /  \
+  10   30
+```
+
+### Step 4: Insert 40
+```
+    20
+   /  \
+  10   30
+         \
+          40
+```
+(No rotation needed)
+
+### Step 5: Insert 50 (Unbalanced, Right-Right Case)
+```
+    20
+   /  \
+  10   30
+         \
+          40
+            \
+             50
+```
+**Fix:** Left Rotation at 30
+```
+    20
+   /  \
+  10   40
+       /  \
+      30   50
+```
+
+### Step 6: Insert 25 (Unbalanced, Right-Left Case)
+```
+    20
+   /  \
+  10   40
+       /  \
+      30   50
+     /
+    25
+```
+**Fix:** Right Rotation at 30, then Left Rotation at 40
+```
+    20
+   /  \
+  10   30
+       /  \
+      25   40
+             \
+              50
+```
+
+## Summary
+- Insert elements like in a **Binary Search Tree (BST)**.
+- Check balance factor after each insertion.
+- Apply **rotations** if needed to maintain balance.
+
+### Time Complexity
+- **Insertion, Deletion, and Search:** **O(log n)**
 
 
