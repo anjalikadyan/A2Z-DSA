@@ -1,5 +1,4 @@
 ## Tree Data Structure
-
 ### Definition
 A **Tree** is a non-linear data structure that stores values in a hierarchical manner.
 
@@ -192,7 +191,6 @@ Let's insert the numbers **10, 20, 30, 40, 50, 25** into an empty AVL tree and b
           40
 ```
 (No rotation needed)
-
 ### Step 5: Insert 50 (Unbalanced, Right-Right Case)
 ```
     20
