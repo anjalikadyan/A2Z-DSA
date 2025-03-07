@@ -18,6 +18,8 @@ def deleteMiddle(head: ListNode) -> ListNode:
     prev.next = slow.next  
     return head
 
+
+
 def list_to_linked_list(arr):
     if not arr:
         return None
@@ -35,7 +37,7 @@ def linked_list_to_list(head):
         head = head.next
     return result
 
-input_list = [1, 3, 4, 7, 1, 2, 6]
+input_list = [1, 7, 4, 9, 2, 2, 2]
 head = list_to_linked_list(input_list)
 new_head = deleteMiddle(head)
 print(linked_list_to_list(new_head)) 
