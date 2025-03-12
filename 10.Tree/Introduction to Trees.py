@@ -1,8 +1,4 @@
 n=int(input("enter a number: "))
-
-
-
-
 def countNodes(i):
         sum=1
         j=0

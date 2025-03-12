@@ -17,9 +17,6 @@ def deleteMiddle(head: ListNode) -> ListNode:
     
     prev.next = slow.next  
     return head
-
-
-
 def list_to_linked_list(arr):
     if not arr:
         return None
