@@ -601,6 +601,35 @@ Linked lists are useful in scenarios where:
 - Frequent insertions and deletions occur.
 - Memory utilization needs to be optimized.
 
+# Introduction to Bit Manipulation
+
+Bit manipulation is a technique used in programming to interact with individual bits of data. It is commonly used in systems programming, embedded systems, competitive programming, and areas where performance and memory efficiency are crucial.
+
+## Why Use Bit Manipulation?
+
+- **Efficiency**: Bit operations are very fast and can often be done in a single CPU instruction.
+- **Memory Optimization**: Allows for compact data representation.
+- **Low-level Access**: Useful when working close to hardware.
+
+## Bitwise Operators in C/C++/Java/Python
+
+| Operator | Symbol | Description            |
+|----------|--------|------------------------|
+| AND      | `&`    | 1 if both bits are 1   |
+| OR       | `|`    | 1 if at least one is 1 |
+| XOR      | `^`    | 1 if bits are different|
+| NOT      | `~`    | Inverts all the bits   |
+| LEFT SHIFT  | `<<` | Shifts bits left       |
+| RIGHT SHIFT | `>>` | Shifts bits right      |
+
+## Examples
+
+### 1. Check if a number is even or odd
+```cpp
+if (num & 1) 
+    cout << "Odd";
+else 
+    cout << "Even";
 
 
 
