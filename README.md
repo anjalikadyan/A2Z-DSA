@@ -349,7 +349,7 @@ Hashing is essential for efficient data retrieval and storage, especially in cas
   - Additional space is required for the temporary arrays used during the merge process.
 
 
-##Quick Sort
+### Quick Sort
 
 Quick Sort is a **divide-and-conquer** algorithm that efficiently sorts arrays by recursively partitioning them based on a selected pivot element. 
 
@@ -600,6 +600,55 @@ Linked lists are useful in scenarios where:
 - Dynamic memory allocation is required.
 - Frequent insertions and deletions occur.
 - Memory utilization needs to be optimized.
+
+# Tree Data Structures Summary
+
+##  Basic Tree
+
+A **Tree** is a non-linear hierarchical data structure. A **Binary Tree** is a special kind of tree where each node has at most two children.
+
+### Terminologies
+- **Node**: Represents a value.
+- **Root**: Topmost node of the tree.
+- **Children/Parent**: Direct connections between nodes.
+- **Siblings**: Nodes with the same parent.
+- **Ancestor/Descendant**: Nodes above or below a given node.
+- **Leaf**: Node with no children.
+
+### Java Representation
+```java
+class Node {
+    int data;
+    Node left, right;
+    Node(int data) { this.data = data; }
+}
+class BinaryTree {
+    Node root;
+    BinaryTree(int data) { root = new Node(data); }
+}
+ Extended Binary Tree
+
+An **Extended Binary Tree** (also known as a **2-tree** or **Full Binary Tree**) is a type of binary tree where each node has either **0** or **2** children.
+
+### Node Classification
+- A node with **0 children** is called an **External Node (Leaf Node)**.
+- A node with **2 children** is called an **Internal Node**.
+
+
+# AVL Tree
+
+## Introduction
+An AVL tree is a self-balancing binary search tree (BST) where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This balance condition ensures that the tree remains balanced, providing efficient operations.
+
+## Properties
+1. **Self-balancing**: The height difference between left and right subtrees (balance factor) is at most 1.
+2. **BST Property**: Left subtree values are smaller than the node, and right subtree values are greater.
+3. **Rotations**: To maintain balance, the AVL tree uses rotations:
+   - Right Rotation (LL Rotation)
+   - Left Rotation (RR Rotation)
+   - Left-Right Rotation (LR Rotation)
+   - Right-Left Rotation (RL Rotation)
+
 
 # Introduction to Bit Manipulation
 
