@@ -14,9 +14,6 @@ Data Structure is a way to organize data in the main memory or RAM. An algorithm
 2. Save hardware costs.
 3. Optimize CPU cycles.
 4. Become better programmers overall.
-
-> *Additionally, DSA is a key topic for most companies during job interviews.*
-
 ---
 
 ## Roadmap to Learn DSA
@@ -71,43 +68,6 @@ Time complexity is the time taken by an algorithm to run as a function of the in
 | O(n²)                | Bubble Sort, Insertion Sort|
 | O(2ⁿ)                | Recursive Fibonacci        |
 | O(n!)                | Permutations               |
-
-### Example: Comparing Complexities
-
-```python
-# Example to illustrate time complexity
-import time
-
-def linear_search(arr, target):
-    for i in range(len(arr)):
-        if arr[i] == target:
-            return i
-    return -1
-
-def binary_search(arr, target):
-    low, high = 0, len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-
-# Comparing the two methods
-arr = list(range(1, 1000000))
-target = 999999
-
-start = time.time()
-linear_search(arr, target)
-print("Linear Search Time:", time.time() - start)
-
-start = time.time()
-binary_search(arr, target)
-print("Binary Search Time:", time.time() - start)
-```
 
 ---
 
@@ -213,230 +173,139 @@ print("Tower of Hanoi steps:")
 tower_of_hanoi(n, 'A', 'C', 'B')
 ```
 
-Here’s a summary of the key points about **Hashing in Data Structures and Algorithms (DSA)**:
-
 ---
 
-### Hashing in DSA**
+## Data Structures
 
-**Hashing** is a technique used to store and retrieve data efficiently by mapping keys to fixed-size indexes using a **hash function**. It significantly improves the time complexity for operations like insertion, deletion, and searching compared to other data structures.
+### Strings in Python
 
----
+A **string** is a data type in programming used to represent a sequence of characters. Strings can include letters, numbers, symbols, and spaces. They are typically enclosed in **quotation marks**: either single (`'`) or double (`"`).
 
-### **Key Concepts**
+#### Examples of Strings
+- `"Hello, World!"`  
+- `'Python is fun!'`  
+- `"12345"` (a string of numbers, not actual integers)  
+- `'!@#$%^&*()'` (a string of symbols)
 
-1. **Hash Function**:
-   - A function that converts a key into an index for the hash table. Example: `key % table_size`.
-
-2. **Hash Table**:
-   - A structure that stores key-value pairs. The hash function determines where each pair is stored.
-
-3. **Collision**:
-   - Occurs when two keys hash to the same index. Collision resolution is necessary to maintain data integrity.
-
----
-
-### **Operations in Hashing**
-
-1. **Insert**: Use the hash function to find an index and store the key-value pair.
-2. **Search**: Use the hash function to locate the index and retrieve the value.
-3. **Delete**: Use the hash function to locate the index and remove the key-value pair.
-
----
-
-### **Collision Resolution Techniques**
-
-1. **Chaining**: Each table index holds a linked list. Multiple keys that hash to the same index are stored in the list.
-2. **Open Addressing**: All elements are stored in the table. If a collision occurs, methods like **linear probing**, **quadratic probing**, and **double hashing** are used to find the next available index.
-
----
-
-### **Advantages of Hashing**
-
-1. **Fast Access**: Average time complexity for insertion, deletion, and search is \(O(1)\).
-2. **Efficient Memory Usage**: Hash tables store data compactly, ensuring efficient memory usage.
-
----
-
-### **Example: Hash Table with Chaining**
-
+#### Operations with Strings
+1. **Concatenation (joining strings)**:
 ```python
-class HashTable:
-    def __init__(self, size):
-        self.size = size
-        self.table = [[] for _ in range(size)]
-
-    def hash_function(self, key):
-        return key % self.size
-
-    def insert(self, key, value):
-        index = self.hash_function(key)
-        for k, v in self.table[index]:
-            if k == key:
-                self.table[index].remove((k, v))  # Remove old pair
-                break
-        self.table[index].append((key, value))
-
-    def search(self, key):
-        index = self.hash_function(key)
-        for k, v in self.table[index]:
-            if k == key:
-                return v
-        return None
-
-    def delete(self, key):
-        index = self.hash_function(key)
-        for i, (k, v) in enumerate(self.table[index]):
-            if k == key:
-                del self.table[index][i]
-                return True
-        return False
-
-# Example Usage
-hash_table = HashTable(10)
-hash_table.insert(1, "one")
-hash_table.insert(11, "eleven")
-print(hash_table.search(11))  # Output: eleven
-hash_table.delete(11)
-print(hash_table.search(11))  # Output: None
+greeting = "Hello"
+name = "Alice"
+result = greeting + ", " + name + "!"
+print(result)  # Output: Hello, Alice!
 ```
 
----
-
-### **Conclusion**
-
-Hashing is essential for efficient data retrieval and storage, especially in cases like databases, caches, and implementing hash maps. It helps achieve fast access to data with \(O(1)\) time complexity, but requires careful collision handling to maintain performance.
-
----
-
-# Sorting Algorithms for Arrays
-
-### Selection Sort:
-- Works by repeatedly finding the minimum element and swapping it.
-- Time Complexity: **O(n^2)** (all cases).
-- Space Complexity: **O(1)**.
-
-### Bubble Sort:
-- Repeatedly compares and swaps adjacent elements.
-- Time Complexity: **O(n^2)** (worst and average), **O(n)** (best).
-- Space Complexity: **O(1)**.
-
-### Insertion Sort:
-- Iteratively inserts elements into their correct position.
-- Time Complexity: **O(n)** (best), **O(n^2)** (average and worst).
-- Space Complexity: **O(1)**.
-
-### Merge Sort Algorithm
-- **Merge Sort** is a **divide-and-conquer** sorting algorithm.
-- It is both **efficient** and **stable**.
-- The algorithm works by dividing the array into two halves until no further division is possible. Each subarray is then sorted recursively and merged back together in sorted order.
-
-### Time Complexity
-1. **Best Case**:
-   - **O(n log n)**
-   - Occurs when the array is already sorted or nearly sorted.
-
-2. **Average Case**:
-   - **O(n log n)**
-   - Occurs when the array is randomly ordered.
-
-3. **Worst Case**:
-   - **O(n log n)**
-   - Occurs when the array is sorted in reverse order.
-
-### Auxiliary Space
-- **O(n)**:
-  - Additional space is required for the temporary arrays used during the merge process.
-
-
-### Quick Sort
-
-Quick Sort is a **divide-and-conquer** algorithm that efficiently sorts arrays by recursively partitioning them based on a selected pivot element. 
-
-### Key Points:
-1. **Pivot Selection**: A pivot can be chosen randomly, or from the first or last element.
-2. **Partitioning**:
-   - Elements smaller than the pivot go to the left.
-   - Elements larger than the pivot go to the right.
-3. **Recursion**: The same process is applied to the left and right subarrays until all subarrays contain one element.
-
-### Time Complexity:
-- **Best Case**: Ω(n log n) - When the pivot splits the array evenly.
-- **Average Case**: Θ(n log n) - For most cases.
-- **Worst Case**: O(n²) - When the array is already sorted or reverse-sorted, and the smallest or largest element is chosen as the pivot.
-
-### Auxiliary Space:
-- **O(n)** - Space used by the recursive call stack.
-
-### Example:
-#### Input: `[8, 3, 7, 6, 2]`
-#### Output: `[2, 3, 6, 7, 8]`
-
-### Python Code:
+2. **Repetition**:
 ```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[-1]
-    left = [x for x in arr[:-1] if x <= pivot]
-    right = [x for x in arr[:-1] if x > pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
-
-# Example Usage
-arr = [8, 3, 7, 6, 2]
-print(quick_sort(arr))  # Output: [2, 3, 6, 7, 8]
+word = "Hi"
+repeated = word * 3
+print(repeated)  # Output: HiHiHi
 ```
 
-### Advantages:
-- Highly efficient for large datasets.
-- Average and best-case time complexity are **O(n log n)**.
+3. **Accessing Characters**:
+```python
+my_string = "Python"
+print(my_string[0])  # Output: P (first character)
+print(my_string[-1])  # Output: n (last character)
+```
 
-### Disadvantages:
-- Worst-case time complexity is **O(n²)**.
-- Recursive nature can cause stack overflow for very large arrays if not optimized.
+4. **String Length**:
+```python
+my_string = "Hello"
+print(len(my_string))  # Output: 5
+```
 
-# **Backtracking**
+5. **String Methods**:
+```python
+text = "hello"
+print(text.upper())  # Output: HELLO
+print(text.capitalize())  # Output: Hello
+print(text.replace('l', 'r'))  # Output: herro
+```
 
-**Backtracking** is an algorithmic approach that uses recursion and a "try-and-error" strategy to explore all possible solutions to a problem. If a solution does not meet the defined conditions, the algorithm backtracks (undoes the last step) and tries a different path. It is particularly useful for solving problems with multiple constraints or configurations, such as puzzles, pathfinding, and combinatorial problems.
+### Linked List
+
+A **linked list** is a linear data structure in which elements (called **nodes**) are linked together using pointers. Unlike arrays, linked lists do not require contiguous memory locations, making them more flexible in dynamic memory allocation.
+
+#### Types of Linked Lists
+1. **Singly Linked List** – Each node has data and a pointer to the next node.
+2. **Doubly Linked List** – Each node has data, a pointer to the next node, and a pointer to the previous node.
+3. **Circular Linked List** – The last node points back to the first node, forming a loop.
+
+#### Basic Structure of a Node (Singly Linked List in C++)
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+```
+
+#### Operations on Linked List
+1. **Insertion** – Add a new node at the beginning, end, or a specific position.
+2. **Deletion** – Remove a node from the list.
+3. **Traversal** – Go through the list to access elements.
+4. **Searching** – Find a node with a given value.
+
+#### Usage
+Linked lists are useful in scenarios where:
+- Dynamic memory allocation is required.
+- Frequent insertions and deletions occur.
+- Memory utilization needs to be optimized.
+
+### Tree Data Structures
+
+#### Basic Tree
+
+A **Tree** is a non-linear hierarchical data structure. A **Binary Tree** is a special kind of tree where each node has at most two children.
+
+##### Terminologies
+- **Node**: Represents a value.
+- **Root**: Topmost node of the tree.
+- **Children/Parent**: Direct connections between nodes.
+- **Siblings**: Nodes with the same parent.
+- **Ancestor/Descendant**: Nodes above or below a given node.
+- **Leaf**: Node with no children.
+
+##### Java Representation
+```java
+class Node {
+    int data;
+    Node left, right;
+    Node(int data) { this.data = data; }
+}
+class BinaryTree {
+    Node root;
+    BinaryTree(int data) { root = new Node(data); }
+}
+```
+
+#### Extended Binary Tree
+
+An **Extended Binary Tree** (also known as a **2-tree** or **Full Binary Tree**) is a type of binary tree where each node has either **0** or **2** children.
+
+##### Node Classification
+- A node with **0 children** is called an **External Node (Leaf Node)**.
+- A node with **2 children** is called an **Internal Node**.
+
+#### AVL Tree
+
+An AVL tree is a self-balancing binary search tree (BST) where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This balance condition ensures that the tree remains balanced, providing efficient operations.
+
+##### Properties
+1. **Self-balancing**: The height difference between left and right subtrees (balance factor) is at most 1.
+2. **BST Property**: Left subtree values are smaller than the node, and right subtree values are greater.
+3. **Rotations**: To maintain balance, the AVL tree uses rotations:
+   - Right Rotation (LL Rotation)
+   - Left Rotation (RR Rotation)
+   - Left-Right Rotation (LR Rotation)
+   - Right-Left Rotation (RL Rotation)
 
 ---
 
-## **Key Steps in Backtracking**  
-1. **Define the Problem**: Specify the conditions for a valid solution.  
-2. **Use Recursion**: Explore potential solutions step-by-step.  
-3. **Undo and Retry**: Backtrack if the current solution does not satisfy the conditions and try alternative paths.
+## Algorithms
 
----
-
-### **Examples**  
-1. **N-Queens Problem**:  
-   - **Goal**: Place N queens on an N×N chessboard such that no two queens threaten each other.  
-   - **Approach**: Place queens row by row, validate their positions, and backtrack if conflicts arise.  
-
-2. **Maze Problem (Pathfinding)**:  
-   - **Goal**: Find a path from the start to the destination in a grid-based maze.  
-   - **Approach**: Recursively move to neighboring cells, backtrack if a dead-end is reached, and explore alternate paths.  
-
-3. **Generating All Subsets of a Set**:  
-   - **Goal**: Create all possible subsets of a given set.  
-   - **Approach**: Include or exclude elements recursively, backtracking to explore all combinations.
-
----
-
-### **Applications of Backtracking**  
-- Solving combinatorial problems (e.g., subsets, permutations).  
-- Pathfinding in mazes or graphs.  
-- Puzzle-solving (e.g., Sudoku, N-Queens).  
-- Optimizing resource allocation problems.
-
-Backtracking is a powerful problem-solving technique but can be computationally expensive for large input sizes.
-
-Here is the content for your `README.md`:
-
-```markdown
-## Binary Search Algorithm
-
-### Description
+### Binary Search Algorithm
 
 Binary Search is a highly efficient algorithm used to find an element in a **sorted array**. It works by repeatedly dividing the search interval in half, narrowing down the potential location of the target element.
 
@@ -449,23 +318,11 @@ Binary Search is a highly efficient algorithm used to find an element in a **sor
    - If the middle element is smaller than the target, search the right half.
 4. Repeat the process until the target is found or the pointers cross.
 
-### Time and Space Complexity
-
+#### Time and Space Complexity
 - **Time Complexity**: `O(log n)` - Each step halves the array size, making it much faster than linear search for large datasets.
 - **Space Complexity**: `O(1)` - No additional space required for iterative implementation.
 
-### Binary Search Algorithm Example
-
-#### Example 1: Searching for an element in an array.
-
-Given a sorted array:
-
-```python
-arr = [1, 3, 5, 7, 9, 11, 13, 15]
-```
-
-#### Binary Search Code:
-
+#### Example:
 ```python
 def binary_search(array, target):
     low, high = 0, len(array) - 1
@@ -483,185 +340,145 @@ def binary_search(array, target):
     return -1  # Target not found
 ```
 
-#### Example 2: Searching for the target value `7`:
+### Sorting Algorithms
 
+#### Selection Sort:
+- Works by repeatedly finding the minimum element and swapping it.
+- Time Complexity: **O(n^2)** (all cases).
+- Space Complexity: **O(1)**.
+
+#### Bubble Sort:
+- Repeatedly compares and swaps adjacent elements.
+- Time Complexity: **O(n^2)** (worst and average), **O(n)** (best).
+- Space Complexity: **O(1)**.
+
+#### Insertion Sort:
+- Iteratively inserts elements into their correct position.
+- Time Complexity: **O(n)** (best), **O(n^2)** (average and worst).
+- Space Complexity: **O(1)**.
+
+#### Merge Sort
+- **Merge Sort** is a **divide-and-conquer** sorting algorithm.
+- It is both **efficient** and **stable**.
+- The algorithm works by dividing the array into two halves until no further division is possible. Each subarray is then sorted recursively and merged back together in sorted order.
+
+##### Time Complexity
+1. **Best Case**: **O(n log n)**
+2. **Average Case**: **O(n log n)**
+3. **Worst Case**: **O(n log n)**
+
+##### Auxiliary Space: **O(n)**
+
+#### Quick Sort
+Quick Sort is a **divide-and-conquer** algorithm that efficiently sorts arrays by recursively partitioning them based on a selected pivot element.
+
+##### Key Points:
+1. **Pivot Selection**: A pivot can be chosen randomly, or from the first or last element.
+2. **Partitioning**:
+   - Elements smaller than the pivot go to the left.
+   - Elements larger than the pivot go to the right.
+3. **Recursion**: The same process is applied to the left and right subarrays until all subarrays contain one element.
+
+##### Time Complexity:
+- **Best Case**: Ω(n log n)
+- **Average Case**: Θ(n log n)
+- **Worst Case**: O(n²)
+
+##### Auxiliary Space: **O(n)**
+
+##### Example:
 ```python
-arr = [1, 3, 5, 7, 9, 11, 13, 15]
-target = 7
-
-result = binary_search(arr, target)
-if result != -1:
-    print(f"Element found at index {result}")
-else:
-    print("Element not found")
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[-1]
+    left = [x for x in arr[:-1] if x <= pivot]
+    right = [x for x in arr[:-1] if x > pivot]
+    return quick_sort(left) + [pivot] + quick_sort(right)
 ```
 
-#### Output:
+### Backtracking
 
-```
-Element found at index 3
-```
+**Backtracking** is an algorithmic approach that uses recursion and a "try-and-error" strategy to explore all possible solutions to a problem. If a solution does not meet the defined conditions, the algorithm backtracks (undoes the last step) and tries a different path.
 
-### Usage
+#### Key Steps in Backtracking
+1. **Define the Problem**: Specify the conditions for a valid solution.
+2. **Use Recursion**: Explore potential solutions step-by-step.
+3. **Undo and Retry**: Backtrack if the current solution does not satisfy the conditions and try alternative paths.
 
-1. The array must be sorted.
-2. Call the `binary_search` function, passing the array and the target element as arguments.
+#### Examples
+1. **N-Queens Problem**
+2. **Maze Problem (Pathfinding)**
+3. **Generating All Subsets of a Set**
 
----
+#### Applications
+- Solving combinatorial problems
+- Pathfinding in mazes or graphs
+- Puzzle-solving (e.g., Sudoku, N-Queens)
+- Optimizing resource allocation problems
 
-### Conclusion
+### Hashing
 
-Binary search is a powerful and efficient algorithm when applied to sorted arrays. It offers significant performance improvements over linear search, especially as the size of the array grows.
-```
-```
-## Strings in Python
+**Hashing** is a technique used to store and retrieve data efficiently by mapping keys to fixed-size indexes using a **hash function**.
 
-A **string** is a data type in programming used to represent a sequence of characters. Strings can include letters, numbers, symbols, and spaces. They are typically enclosed in **quotation marks**: either single (`'`) or double (`"`).
+#### Key Concepts
+1. **Hash Function**: Converts a key into an index for the hash table.
+2. **Hash Table**: Structure that stores key-value pairs.
+3. **Collision**: Occurs when two keys hash to the same index.
 
-## Examples of Strings
-- `"Hello, World!"`  
-- `'Python is fun!'`  
-- `"12345"` (a string of numbers, not actual integers)  
-- `'!@#$%^&*()'` (a string of symbols)
+#### Operations in Hashing
+1. **Insert**: Use the hash function to find an index and store the key-value pair.
+2. **Search**: Use the hash function to locate the index and retrieve the value.
+3. **Delete**: Use the hash function to locate the index and remove the key-value pair.
 
-## String in Python
-In Python, strings are created by enclosing text in quotes:
+#### Collision Resolution Techniques
+1. **Chaining**: Each table index holds a linked list.
+2. **Open Addressing**: All elements are stored in the table.
 
+#### Example: Hash Table with Chaining
 ```python
-# Examples of strings
-string1 = "Hello, World!"
-string2 = 'Python is fun!'
-string3 = "12345"  # This is a string, not an integer
+class HashTable:
+    def __init__(self, size):
+        self.size = size
+        self.table = [[] for _ in range(size)]
+
+    def hash_function(self, key):
+        return key % self.size
+
+    def insert(self, key, value):
+        index = self.hash_function(key)
+        for k, v in self.table[index]:
+            if k == key:
+                self.table[index].remove((k, v))
+                break
+        self.table[index].append((key, value))
+
+    def search(self, key):
+        index = self.hash_function(key)
+        for k, v in self.table[index]:
+            if k == key:
+                return v
+        return None
+
+    def delete(self, key):
+        index = self.hash_function(key)
+        for i, (k, v) in enumerate(self.table[index]):
+            if k == key:
+                del self.table[index][i]
+                return True
+        return False
 ```
 
-## Operations with Strings
-You can perform various operations with strings, such as:
-
-### 1. Concatenation (joining strings):
-```python
-greeting = "Hello"
-name = "Alice"
-result = greeting + ", " + name + "!"
-print(result)  # Output: Hello, Alice!
-```
-
-### 2. Repetition:
-```python
-word = "Hi"
-repeated = word * 3
-print(repeated)  # Output: HiHiHi
-```
-
-### 3. Accessing Characters:
-```python
-my_string = "Python"
-print(my_string[0])  # Output: P (first character)
-print(my_string[-1])  # Output: n (last character)
-```
-
-### 4. String Length:
-```python
-my_string = "Hello"
-print(len(my_string))  # Output: 5
-```
-
-### 5. String Methods:
-```python
-text = "hello"
-print(text.upper())  # Output: HELLO
-print(text.capitalize())  # Output: Hello
-print(text.replace('l', 'r'))  # Output: herro
-```
-# Linked List
-
-A **linked list** is a linear data structure in which elements (called **nodes**) are linked together using pointers. Unlike arrays, linked lists do not require contiguous memory locations, making them more flexible in dynamic memory allocation.
-
-## Types of Linked Lists
-1. **Singly Linked List** – Each node has data and a pointer to the next node.
-2. **Doubly Linked List** – Each node has data, a pointer to the next node, and a pointer to the previous node.
-3. **Circular Linked List** – The last node points back to the first node, forming a loop.
-
-## Basic Structure of a Node (Singly Linked List in C++)
-```cpp
-struct Node {
-    int data;
-    Node* next;
-};
-```
-
-## Operations on Linked List
-1. **Insertion** – Add a new node at the beginning, end, or a specific position.
-2. **Deletion** – Remove a node from the list.
-3. **Traversal** – Go through the list to access elements.
-4. **Searching** – Find a node with a given value.
-
-## Usage
-Linked lists are useful in scenarios where:
-- Dynamic memory allocation is required.
-- Frequent insertions and deletions occur.
-- Memory utilization needs to be optimized.
-
-# Tree Data Structures Summary
-
-##  Basic Tree
-
-A **Tree** is a non-linear hierarchical data structure. A **Binary Tree** is a special kind of tree where each node has at most two children.
-
-### Terminologies
-- **Node**: Represents a value.
-- **Root**: Topmost node of the tree.
-- **Children/Parent**: Direct connections between nodes.
-- **Siblings**: Nodes with the same parent.
-- **Ancestor/Descendant**: Nodes above or below a given node.
-- **Leaf**: Node with no children.
-
-### Java Representation
-```java
-class Node {
-    int data;
-    Node left, right;
-    Node(int data) { this.data = data; }
-}
-class BinaryTree {
-    Node root;
-    BinaryTree(int data) { root = new Node(data); }
-}
- Extended Binary Tree
-
-An **Extended Binary Tree** (also known as a **2-tree** or **Full Binary Tree**) is a type of binary tree where each node has either **0** or **2** children.
-
-### Node Classification
-- A node with **0 children** is called an **External Node (Leaf Node)**.
-- A node with **2 children** is called an **Internal Node**.
-
-
-# AVL Tree
-
-## Introduction
-An AVL tree is a self-balancing binary search tree (BST) where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This balance condition ensures that the tree remains balanced, providing efficient operations.
-
-## Properties
-1. **Self-balancing**: The height difference between left and right subtrees (balance factor) is at most 1.
-2. **BST Property**: Left subtree values are smaller than the node, and right subtree values are greater.
-3. **Rotations**: To maintain balance, the AVL tree uses rotations:
-   - Right Rotation (LL Rotation)
-   - Left Rotation (RR Rotation)
-   - Left-Right Rotation (LR Rotation)
-   - Right-Left Rotation (RL Rotation)
-
-
-# Introduction to Bit Manipulation
+### Bit Manipulation
 
 Bit manipulation is a technique used in programming to interact with individual bits of data. It is commonly used in systems programming, embedded systems, competitive programming, and areas where performance and memory efficiency are crucial.
 
-## Why Use Bit Manipulation?
+#### Why Use Bit Manipulation?
+- **Efficiency**: Bit operations are very fast
+- **Memory Optimization**: Allows for compact data representation
+- **Low-level Access**: Useful when working close to hardware
 
-- **Efficiency**: Bit operations are very fast and can often be done in a single CPU instruction.
-- **Memory Optimization**: Allows for compact data representation.
-- **Low-level Access**: Useful when working close to hardware.
-
-## Bitwise Operators in C/C++/Java/Python
-
+#### Bitwise Operators
 | Operator | Symbol | Description            |
 |----------|--------|------------------------|
 | AND      | `&`    | 1 if both bits are 1   |
@@ -671,15 +488,11 @@ Bit manipulation is a technique used in programming to interact with individual 
 | LEFT SHIFT  | `<<` | Shifts bits left       |
 | RIGHT SHIFT | `>>` | Shifts bits right      |
 
-## Examples
-
-### 1. Check if a number is even or odd
+#### Examples
 ```cpp
+// Check if a number is even or odd
 if (num & 1) 
     cout << "Odd";
 else 
     cout << "Even";
-
-
-
-
+```
