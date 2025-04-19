@@ -4,495 +4,515 @@
 
 ---
 
-## Why is DSA Important?
+## Table of Contents
+1. [Introduction to DSA](#introduction-to-dsa)
+2. [Time and Space Complexity](#time-and-space-complexity)
+3. [Data Structures](#data-structures)
+4. [Algorithms](#algorithms)
+5. [Mathematical Problems](#mathematical-problems)
 
-Data Structure is a way to organize data in the main memory or RAM. An algorithm is the sequence of steps you write in code to solve a problem. When programming, memory is required to store and process data during program execution. DSA teaches us different methods to store data in memory to allow faster retrieval, as well as various algorithms for solving problems.
+---
+
+## Introduction to DSA
+
+### Why is DSA Important?
+
+Data Structures and Algorithms (DSA) form the foundation of computer science and programming. They are essential for writing efficient and optimized code. Here's why DSA is crucial:
+
+1. **Efficiency**: DSA helps write code that runs faster and uses fewer resources.
+2. **Problem Solving**: Provides systematic approaches to solve complex problems.
+3. **Optimization**: Helps optimize both time and space usage in programs.
+4. **Career Growth**: Essential for technical interviews and career advancement.
 
 ### Benefits of Learning DSA:
 
-1. Write efficient code that runs faster.
-2. Save hardware costs.
-3. Optimize CPU cycles.
-4. Become better programmers overall.
----
-
-## Roadmap to Learn DSA
-
-1. **Learn a programming language**: Start with Python.
-2. **Understand the basics of DSA**: Learn and implement foundational concepts.
-3. **Practice daily**: Focus on one topic at a time and build a habit of solving problems regularly.
+1. **Write efficient code**: Optimize your programs to run faster.
+2. **Save hardware costs**: Efficient code requires fewer resources.
+3. **Optimize CPU cycles**: Better algorithms mean less processing time.
+4. **Become a better programmer**: Develop systematic problem-solving skills.
 
 ---
 
-## Asymptotic Analysis
+## Time and Space Complexity
 
-Asymptotic analysis is a theoretical and mathematical measurement used to evaluate the efficiency of an algorithm. It helps compare algorithms without depending on factors like the machine or programming language used. This approach allows us to determine the better algorithm purely based on its performance.
+### Asymptotic Analysis
 
-### Best, Average, and Worst Cases:
+Asymptotic analysis is a mathematical approach to evaluate algorithm efficiency. It helps compare algorithms independently of hardware or programming language.
+
+#### Best, Average, and Worst Cases:
 
 - **Best Case**: Minimum time taken by the algorithm to run.
-- **Average Case**: Based on assumptions about the input, the average time taken by the algorithm to run.
-- **Worst Case**: Maximum time taken by the program. Worst-case analysis is critical because programs often deal with varying inputs.
+- **Average Case**: Expected time based on random inputs.
+- **Worst Case**: Maximum time taken by the algorithm.
 
-### Notations:
+#### Big O Notation
 
-1. **Big O Notation**: Represents the exact or upper bound of the order of growth. Example: O(n) means the growth is linear or less.
-2. **Theta (Θ) Notation**: Represents the exact order of growth.
-3. **Omega (Ω) Notation**: Represents the exact or lower bound. Example: Ω(1) indicates constant or greater growth.
+Big O notation describes the upper bound of an algorithm's growth rate:
 
----
-
-## Time Complexity
-
-Time complexity is the time taken by an algorithm to run as a function of the input length. It helps create better programs and compare algorithms.
-
-### Common Time Complexity Classes:
-
-- **Constant Time**: O(1)  
-- **Logarithmic Time**: O(log n) (e.g., Binary Search)
-- **Linear Time**: O(n)  
-- **Linearithmic Time**: O(n log n) (e.g., Merge Sort)
-- **Quadratic Time**: O(n²) (e.g., Nested Loops)
-- **Cubic Time**: O(n³) (e.g., Deeply Nested Loops)
-- **Exponential Time**: O(2ⁿ)
-- **Factorial Time**: O(n!)
-
-### Big O Complexity Chart:
-
-| Complexity Class      | Examples                   |
-|-----------------------|----------------------------|
-| O(1)                 | Accessing an array element |
-| O(log n)             | Binary Search              |
-| O(n)                 | Linear Search              |
-| O(n log n)           | Merge Sort, Quick Sort     |
-| O(n²)                | Bubble Sort, Insertion Sort|
-| O(2ⁿ)                | Recursive Fibonacci        |
-| O(n!)                | Permutations               |
-
----
-
-## Space Complexity
-
-Space complexity refers to the amount of memory required by an algorithm as a function of the input size.
-
-### Key Concepts:
-
-- **Input Space**: Memory required to store input data.
-- **Auxiliary Space**: Extra or temporary memory used by the algorithm.
-
-### Example: Space Complexity of an Array
-
-```python
-# Space complexity example
-n = 100
-arr = [i for i in range(n)]
-print("Space complexity of the array is O(n):", len(arr))
+```
+Growth Rate Comparison:
+O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
 ```
 
----
+| Complexity Class | Description | Example | Visual Representation |
+|-----------------|-------------|---------|----------------------|
+| O(1) | Constant time | Array access | ```
+  |
+  |________________
+``` |
+| O(log n) | Logarithmic time | Binary search | ```
+  /
+ / 
+/________________
+``` |
+| O(n) | Linear time | Linear search | ```
+  /
+ /
+/________________
+``` |
+| O(n log n) | Linearithmic time | Merge sort | ```
+  /
+ / 
+/________________
+``` |
+| O(n²) | Quadratic time | Bubble sort | ```
+  /
+ / 
+/________________
+``` |
+| O(2ⁿ) | Exponential time | Recursive Fibonacci | ```
+  /
+ / 
+/________________
+``` |
+| O(n!) | Factorial time | Permutations | ```
+  /
+ / 
+/________________
+``` |
 
-## Mathematical Problems and Recursion
+### Space Complexity
 
-### Mathematical Problems
+Space complexity measures the amount of memory an algorithm needs relative to input size:
 
-1. **Count Digits**: Count the number of digits in a given number.
-   ```python
-   n = 12345
-   print("Number of digits:", len(str(n)))
-   ```
-
-2. **Palindrome Numbers**: Check if a number is the same when reversed.
-   ```python
-   n = 121
-   print("Is palindrome:", str(n) == str(n)[::-1])
-   ```
-
-3. **Factorial of a Number**: Calculate the factorial (n!) of a given number.
-   ```python
-   def factorial(n):
-       return 1 if n == 0 else n * factorial(n - 1)
-
-   print("Factorial:", factorial(5))
-   ```
-
-4. **Trailing Zeros in Factorial**: Find the number of trailing zeros in n!.
-   ```python
-   def trailing_zeros(n):
-       count = 0
-       while n >= 5:
-           n //= 5
-           count += n
-       return count
-
-   print("Trailing zeros:", trailing_zeros(100))
-   ```
-
-5. **GCD or HCF of Two Numbers**: Compute the greatest common divisor.
-   ```python
-   def gcd(a, b):
-       while b:
-           a, b = b, a % b
-       return a
-
-   print("GCD:", gcd(56, 98))
-   ```
-
-6. **LCM of Two Numbers**: Calculate the least common multiple.
-   ```python
-   def lcm(a, b):
-       return abs(a * b) // gcd(a, b)
-
-   print("LCM:", lcm(4, 5))
-   ```
-
----
-
-### Recursion
-
-Recursion is a technique where a function calls itself directly or indirectly to solve a problem.
-
-#### Key Recursion-based Algorithms
-
-1. **Dynamic Programming**: Optimize recursive solutions by storing results to avoid recalculating.
-2. **Backtracking**: Solve problems by trying potential solutions and backtracking when necessary.
-3. **Divide and Conquer**: Solve problems by dividing them into smaller subproblems (e.g., Binary Search, Quick Sort, Merge Sort).
-
-#### Example: Tower of Hanoi
-
-```python
-def tower_of_hanoi(n, source, target, auxiliary):
-    if n == 1:
-        print(f"Move disk 1 from {source} to {target}")
-        return
-    tower_of_hanoi(n - 1, source, auxiliary, target)
-    print(f"Move disk {n} from {source} to {target}")
-    tower_of_hanoi(n - 1, auxiliary, target, source)
-
-n = 3
-print("Tower of Hanoi steps:")
-tower_of_hanoi(n, 'A', 'C', 'B')
+```
+Memory Usage Types:
+1. Input Space: Memory for storing input data
+2. Auxiliary Space: Extra space used during execution
+3. Total Space: Input space + Auxiliary space
 ```
 
 ---
 
 ## Data Structures
 
-### Strings in Python
+### 1. Arrays and Strings
 
-A **string** is a data type in programming used to represent a sequence of characters. Strings can include letters, numbers, symbols, and spaces. They are typically enclosed in **quotation marks**: either single (`'`) or double (`"`).
+#### Arrays
+Arrays are contiguous blocks of memory storing elements of the same type.
 
-#### Examples of Strings
-- `"Hello, World!"`  
-- `'Python is fun!'`  
-- `"12345"` (a string of numbers, not actual integers)  
-- `'!@#$%^&*()'` (a string of symbols)
+```
+Array Memory Layout:
++---+---+---+---+---+
+| 1 | 2 | 3 | 4 | 5 |
++---+---+---+---+---+
+  ↑   ↑   ↑   ↑   ↑
+  0   1   2   3   4  (indices)
+```
 
-#### Operations with Strings
-1. **Concatenation (joining strings)**:
 ```python
-greeting = "Hello"
-name = "Alice"
-result = greeting + ", " + name + "!"
-print(result)  # Output: Hello, Alice!
+# Array operations
+arr = [1, 2, 3, 4, 5]
+print(arr[0])  # Access: O(1)
+arr.append(6)  # Append: O(1)
+arr.pop()      # Pop: O(1)
 ```
 
-2. **Repetition**:
+#### Strings
+Strings are sequences of characters with various operations:
+
+```
+String Memory Layout:
++---+---+---+---+---+
+| H | e | l | l | o |
++---+---+---+---+---+
+  ↑   ↑   ↑   ↑   ↑
+  0   1   2   3   4  (indices)
+```
+
 ```python
-word = "Hi"
-repeated = word * 3
-print(repeated)  # Output: HiHiHi
+# String operations
+s = "Hello"
+print(s[0])        # Access: O(1)
+s += " World"      # Concatenation: O(n)
+print(len(s))      # Length: O(1)
 ```
 
-3. **Accessing Characters**:
+### 2. Linked Lists
+
+A linked list is a linear data structure where elements are linked using pointers.
+
+#### Types:
+
+1. **Singly Linked List**:
+```
++---+     +---+     +---+
+| 1 | --> | 2 | --> | 3 |
++---+     +---+     +---+
+```
+
+2. **Doubly Linked List**:
+```
++---+     +---+     +---+
+| 1 | <-> | 2 | <-> | 3 |
++---+     +---+     +---+
+```
+
+3. **Circular Linked List**:
+```
++---+     +---+     +---+
+| 1 | --> | 2 | --> | 3 |
++---+     +---+     +---+
+   ^                   |
+   |___________________|
+```
+
+#### Operations:
+- Insertion: O(1) at head, O(n) at tail
+- Deletion: O(1) at head, O(n) at tail
+- Search: O(n)
+
+### 3. Trees
+
+#### Binary Tree
+A tree where each node has at most two children.
+
+```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+```
+
 ```python
-my_string = "Python"
-print(my_string[0])  # Output: P (first character)
-print(my_string[-1])  # Output: n (last character)
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
 ```
 
-4. **String Length**:
-```python
-my_string = "Hello"
-print(len(my_string))  # Output: 5
+#### Binary Search Tree (BST)
+A binary tree with ordering property:
+- Left subtree values < Node value
+- Right subtree values > Node value
+
 ```
-
-5. **String Methods**:
-```python
-text = "hello"
-print(text.upper())  # Output: HELLO
-print(text.capitalize())  # Output: Hello
-print(text.replace('l', 'r'))  # Output: herro
+        4
+       / \
+      2   6
+     / \ / \
+    1  3 5  7
 ```
-
-### Linked List
-
-A **linked list** is a linear data structure in which elements (called **nodes**) are linked together using pointers. Unlike arrays, linked lists do not require contiguous memory locations, making them more flexible in dynamic memory allocation.
-
-#### Types of Linked Lists
-1. **Singly Linked List** – Each node has data and a pointer to the next node.
-2. **Doubly Linked List** – Each node has data, a pointer to the next node, and a pointer to the previous node.
-3. **Circular Linked List** – The last node points back to the first node, forming a loop.
-
-#### Basic Structure of a Node (Singly Linked List in C++)
-```cpp
-struct Node {
-    int data;
-    Node* next;
-};
-```
-
-#### Operations on Linked List
-1. **Insertion** – Add a new node at the beginning, end, or a specific position.
-2. **Deletion** – Remove a node from the list.
-3. **Traversal** – Go through the list to access elements.
-4. **Searching** – Find a node with a given value.
-
-#### Usage
-Linked lists are useful in scenarios where:
-- Dynamic memory allocation is required.
-- Frequent insertions and deletions occur.
-- Memory utilization needs to be optimized.
-
-### Tree Data Structures
-
-#### Basic Tree
-
-A **Tree** is a non-linear hierarchical data structure. A **Binary Tree** is a special kind of tree where each node has at most two children.
-
-##### Terminologies
-- **Node**: Represents a value.
-- **Root**: Topmost node of the tree.
-- **Children/Parent**: Direct connections between nodes.
-- **Siblings**: Nodes with the same parent.
-- **Ancestor/Descendant**: Nodes above or below a given node.
-- **Leaf**: Node with no children.
-
-##### Java Representation
-```java
-class Node {
-    int data;
-    Node left, right;
-    Node(int data) { this.data = data; }
-}
-class BinaryTree {
-    Node root;
-    BinaryTree(int data) { root = new Node(data); }
-}
-```
-
-#### Extended Binary Tree
-
-An **Extended Binary Tree** (also known as a **2-tree** or **Full Binary Tree**) is a type of binary tree where each node has either **0** or **2** children.
-
-##### Node Classification
-- A node with **0 children** is called an **External Node (Leaf Node)**.
-- A node with **2 children** is called an **Internal Node**.
 
 #### AVL Tree
+A self-balancing BST where height difference between subtrees is at most 1.
 
-An AVL tree is a self-balancing binary search tree (BST) where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This balance condition ensures that the tree remains balanced, providing efficient operations.
+```
+Before Rotation:
+    3
+   /
+  2
+ /
+1
 
-##### Properties
-1. **Self-balancing**: The height difference between left and right subtrees (balance factor) is at most 1.
-2. **BST Property**: Left subtree values are smaller than the node, and right subtree values are greater.
-3. **Rotations**: To maintain balance, the AVL tree uses rotations:
-   - Right Rotation (LL Rotation)
-   - Left Rotation (RR Rotation)
-   - Left-Right Rotation (LR Rotation)
-   - Right-Left Rotation (RL Rotation)
+After Rotation:
+  2
+ / \
+1   3
+```
 
 ---
 
 ## Algorithms
 
-### Binary Search Algorithm
+### 1. Searching Algorithms
 
-Binary Search is a highly efficient algorithm used to find an element in a **sorted array**. It works by repeatedly dividing the search interval in half, narrowing down the potential location of the target element.
+#### Linear Search
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+- Best for unsorted arrays
 
-#### Steps:
-1. Start with two pointers (`low` and `high`) representing the boundaries of the array.
-2. Find the middle element of the array.
-3. Compare the middle element with the target:
-   - If the middle element is the target, return the index.
-   - If the middle element is larger than the target, search the left half.
-   - If the middle element is smaller than the target, search the right half.
-4. Repeat the process until the target is found or the pointers cross.
-
-#### Time and Space Complexity
-- **Time Complexity**: `O(log n)` - Each step halves the array size, making it much faster than linear search for large datasets.
-- **Space Complexity**: `O(1)` - No additional space required for iterative implementation.
-
-#### Example:
-```python
-def binary_search(array, target):
-    low, high = 0, len(array) - 1
-
-    while low <= high:
-        mid = (low + high) // 2  # Find middle element
-
-        if array[mid] == target:
-            return mid  # Target found
-        elif array[mid] < target:
-            low = mid + 1  # Search right half
-        else:
-            high = mid - 1  # Search left half
-
-    return -1  # Target not found
+```
+Linear Search Process:
++---+---+---+---+---+
+| 5 | 2 | 8 | 1 | 3 |
++---+---+---+---+---+
+  ↑
+  Start
 ```
 
-### Sorting Algorithms
+#### Binary Search
+- Time Complexity: O(log n)
+- Space Complexity: O(1)
+- Requires sorted array
 
-#### Selection Sort:
-- Works by repeatedly finding the minimum element and swapping it.
-- Time Complexity: **O(n^2)** (all cases).
-- Space Complexity: **O(1)**.
+```
+Binary Search Process:
++---+---+---+---+---+---+---+---+
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
++---+---+---+---+---+---+---+---+
+  ↑           ↑               ↑
+ low         mid            high
+```
 
-#### Bubble Sort:
-- Repeatedly compares and swaps adjacent elements.
-- Time Complexity: **O(n^2)** (worst and average), **O(n)** (best).
-- Space Complexity: **O(1)**.
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+```
 
-#### Insertion Sort:
-- Iteratively inserts elements into their correct position.
-- Time Complexity: **O(n)** (best), **O(n^2)** (average and worst).
-- Space Complexity: **O(1)**.
+### 2. Sorting Algorithms
+
+#### Bubble Sort
+- Time Complexity: O(n²)
+- Space Complexity: O(1)
+- Stable sorting algorithm
+
+```
+Bubble Sort Process:
+Pass 1: [5, 3, 8, 4, 2] → [3, 5, 4, 2, 8]
+Pass 2: [3, 5, 4, 2, 8] → [3, 4, 2, 5, 8]
+Pass 3: [3, 4, 2, 5, 8] → [3, 2, 4, 5, 8]
+Pass 4: [3, 2, 4, 5, 8] → [2, 3, 4, 5, 8]
+```
 
 #### Merge Sort
-- **Merge Sort** is a **divide-and-conquer** sorting algorithm.
-- It is both **efficient** and **stable**.
-- The algorithm works by dividing the array into two halves until no further division is possible. Each subarray is then sorted recursively and merged back together in sorted order.
+- Time Complexity: O(n log n)
+- Space Complexity: O(n)
+- Stable sorting algorithm
 
-##### Time Complexity
-1. **Best Case**: **O(n log n)**
-2. **Average Case**: **O(n log n)**
-3. **Worst Case**: **O(n log n)**
+```
+Merge Sort Process:
+        [5, 3, 8, 4, 2]
+        /             \
+   [5, 3, 8]       [4, 2]
+    /     \         /   \
+ [5, 3]   [8]     [4]   [2]
+  /   \
+[5]   [3]
+```
 
-##### Auxiliary Space: **O(n)**
+### 3. Graph Algorithms
 
-#### Quick Sort
-Quick Sort is a **divide-and-conquer** algorithm that efficiently sorts arrays by recursively partitioning them based on a selected pivot element.
+#### Depth-First Search (DFS)
+- Time Complexity: O(V + E)
+- Space Complexity: O(V)
+- Uses stack or recursion
 
-##### Key Points:
-1. **Pivot Selection**: A pivot can be chosen randomly, or from the first or last element.
-2. **Partitioning**:
-   - Elements smaller than the pivot go to the left.
-   - Elements larger than the pivot go to the right.
-3. **Recursion**: The same process is applied to the left and right subarrays until all subarrays contain one element.
+```
+DFS Traversal:
+    A
+   / \
+  B   C
+ / \   \
+D   E   F
 
-##### Time Complexity:
-- **Best Case**: Ω(n log n)
-- **Average Case**: Θ(n log n)
-- **Worst Case**: O(n²)
+DFS Order: A → B → D → E → C → F
+```
 
-##### Auxiliary Space: **O(n)**
+#### Breadth-First Search (BFS)
+- Time Complexity: O(V + E)
+- Space Complexity: O(V)
+- Uses queue
 
-##### Example:
+```
+BFS Traversal:
+    A
+   / \
+  B   C
+ / \   \
+D   E   F
+
+BFS Order: A → B → C → D → E → F
+```
+
+### 4. Dynamic Programming
+
+Dynamic Programming is a method for solving complex problems by breaking them down into simpler subproblems.
+
+#### Key Concepts:
+1. **Overlapping Subproblems**: Problems that can be broken down into smaller subproblems
+2. **Optimal Substructure**: Optimal solution can be constructed from optimal solutions of subproblems
+3. **Memoization**: Storing results of expensive function calls
+
+#### Example: Fibonacci Sequence
+```
+Fibonacci Tree:
+        fib(5)
+       /       \
+    fib(4)     fib(3)
+    /   \      /   \
+fib(3) fib(2) fib(2) fib(1)
+```
+
 ```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[-1]
-    left = [x for x in arr[:-1] if x <= pivot]
-    right = [x for x in arr[:-1] if x > pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
+def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 2:
+        return 1
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]
 ```
 
-### Backtracking
+---
 
-**Backtracking** is an algorithmic approach that uses recursion and a "try-and-error" strategy to explore all possible solutions to a problem. If a solution does not meet the defined conditions, the algorithm backtracks (undoes the last step) and tries a different path.
+## Mathematical Problems
 
-#### Key Steps in Backtracking
-1. **Define the Problem**: Specify the conditions for a valid solution.
-2. **Use Recursion**: Explore potential solutions step-by-step.
-3. **Undo and Retry**: Backtrack if the current solution does not satisfy the conditions and try alternative paths.
+### 1. Number Theory
 
-#### Examples
-1. **N-Queens Problem**
-2. **Maze Problem (Pathfinding)**
-3. **Generating All Subsets of a Set**
+#### Prime Numbers
+- Sieve of Eratosthenes: O(n log log n)
+- Prime Factorization: O(√n)
 
-#### Applications
-- Solving combinatorial problems
-- Pathfinding in mazes or graphs
-- Puzzle-solving (e.g., Sudoku, N-Queens)
-- Optimizing resource allocation problems
-
-### Hashing
-
-**Hashing** is a technique used to store and retrieve data efficiently by mapping keys to fixed-size indexes using a **hash function**.
-
-#### Key Concepts
-1. **Hash Function**: Converts a key into an index for the hash table.
-2. **Hash Table**: Structure that stores key-value pairs.
-3. **Collision**: Occurs when two keys hash to the same index.
-
-#### Operations in Hashing
-1. **Insert**: Use the hash function to find an index and store the key-value pair.
-2. **Search**: Use the hash function to locate the index and retrieve the value.
-3. **Delete**: Use the hash function to locate the index and remove the key-value pair.
-
-#### Collision Resolution Techniques
-1. **Chaining**: Each table index holds a linked list.
-2. **Open Addressing**: All elements are stored in the table.
-
-#### Example: Hash Table with Chaining
-```python
-class HashTable:
-    def __init__(self, size):
-        self.size = size
-        self.table = [[] for _ in range(size)]
-
-    def hash_function(self, key):
-        return key % self.size
-
-    def insert(self, key, value):
-        index = self.hash_function(key)
-        for k, v in self.table[index]:
-            if k == key:
-                self.table[index].remove((k, v))
-                break
-        self.table[index].append((key, value))
-
-    def search(self, key):
-        index = self.hash_function(key)
-        for k, v in self.table[index]:
-            if k == key:
-                return v
-        return None
-
-    def delete(self, key):
-        index = self.hash_function(key)
-        for i, (k, v) in enumerate(self.table[index]):
-            if k == key:
-                del self.table[index][i]
-                return True
-        return False
+```
+Sieve of Eratosthenes:
+2  3  4  5  6  7  8  9  10
+2  3  X  5  X  7  X  9  X
+2  3  X  5  X  7  X  X  X
 ```
 
-### Bit Manipulation
+#### GCD and LCM
+- Euclidean Algorithm: O(log min(a,b))
+- LCM using GCD: O(log min(a,b))
 
-Bit manipulation is a technique used in programming to interact with individual bits of data. It is commonly used in systems programming, embedded systems, competitive programming, and areas where performance and memory efficiency are crucial.
-
-#### Why Use Bit Manipulation?
-- **Efficiency**: Bit operations are very fast
-- **Memory Optimization**: Allows for compact data representation
-- **Low-level Access**: Useful when working close to hardware
-
-#### Bitwise Operators
-| Operator | Symbol | Description            |
-|----------|--------|------------------------|
-| AND      | `&`    | 1 if both bits are 1   |
-| OR       | `|`    | 1 if at least one is 1 |
-| XOR      | `^`    | 1 if bits are different|
-| NOT      | `~`    | Inverts all the bits   |
-| LEFT SHIFT  | `<<` | Shifts bits left       |
-| RIGHT SHIFT | `>>` | Shifts bits right      |
-
-#### Examples
-```cpp
-// Check if a number is even or odd
-if (num & 1) 
-    cout << "Odd";
-else 
-    cout << "Even";
 ```
+Euclidean Algorithm:
+gcd(48, 18) = gcd(18, 12)
+             = gcd(12, 6)
+             = gcd(6, 0)
+             = 6
+```
+
+### 2. Combinatorics
+
+#### Permutations and Combinations
+- Factorial: O(n)
+- nCr: O(n)
+
+```
+Permutations of ABC:
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+```
+
+### 3. Modular Arithmetic
+
+#### Properties:
+1. (a + b) mod m = (a mod m + b mod m) mod m
+2. (a * b) mod m = (a mod m * b mod m) mod m
+3. (a - b) mod m = (a mod m - b mod m + m) mod m
+
+---
+
+## Advanced Topics
+
+### 1. Bit Manipulation
+
+#### Bitwise Operations:
+- AND (&): Sets bit to 1 if both bits are 1
+- OR (|): Sets bit to 1 if either bit is 1
+- XOR (^): Sets bit to 1 if bits are different
+- NOT (~): Inverts all bits
+- Left Shift (<<): Multiplies by 2
+- Right Shift (>>): Divides by 2
+
+```
+Bitwise Operations:
+5 & 3 = 1
+5 | 3 = 7
+5 ^ 3 = 6
+~5 = -6
+5 << 1 = 10
+5 >> 1 = 2
+```
+
+### 2. Hashing
+
+#### Hash Table Operations:
+- Insert: O(1) average, O(n) worst
+- Search: O(1) average, O(n) worst
+- Delete: O(1) average, O(n) worst
+
+```
+Hash Table with Chaining:
+[0] -> (key1, value1) -> (key2, value2)
+[1] -> (key3, value3)
+[2] -> NULL
+[3] -> (key4, value4)
+```
+
+#### Collision Resolution:
+1. **Chaining**: Using linked lists
+2. **Open Addressing**: Linear/Quadratic probing
+
+### 3. Backtracking
+
+#### Applications:
+1. N-Queens Problem
+2. Sudoku Solver
+3. Maze Pathfinding
+4. Subset Generation
+
+```
+N-Queens Solution:
++---+---+---+---+
+| Q |   |   |   |
++---+---+---+---+
+|   |   | Q |   |
++---+---+---+---+
+|   |   |   | Q |
++---+---+---+---+
+|   | Q |   |   |
++---+---+---+---+
+```
+
+---
+
+## Practice Resources
+
+1. **Online Judges**:
+   - LeetCode
+   - HackerRank
+   - Codeforces
+   - CodeChef
+
+2. **Books**:
+   - "Introduction to Algorithms" by CLRS
+   - "Algorithm Design Manual" by Steven Skiena
+   - "Cracking the Coding Interview" by Gayle Laakmann McDowell
+
+3. **Courses**:
+   - MIT OpenCourseWare
+   - Coursera
+   - edX
+
+---
+
+## Conclusion
+
+DSA is a fundamental aspect of computer science that helps in writing efficient and optimized code. Regular practice and understanding of these concepts are essential for becoming a better programmer and solving complex problems effectively.
