@@ -259,6 +259,11 @@ Output: 20
 Explanation: 20 is the smallest number that is divisible by both 4 and 5.
 ```
 
+
+
+
+
+
 #### Approach:
 ```python
 def lcm(a, b):
