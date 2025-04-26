@@ -7,7 +7,7 @@
 ## Table of Contents
 1. [Introduction to DSA](#introduction-to-dsa)
 2. [Time and Space Complexity](#time-and-space-complexity)
-3. [Data Structures](#data-structures)
+3. [Data Structures](#data-structures) 
 4. [Algorithms](#algorithms)
 5. [Mathematical Problems](#mathematical-problems)
 
