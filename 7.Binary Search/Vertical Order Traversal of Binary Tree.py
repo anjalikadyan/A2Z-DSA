@@ -6,6 +6,8 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
+
 def verticalTraversal(root):
     col_table = defaultdict(list)
 
